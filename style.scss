@@ -1,0 +1,91 @@
+@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,300italic,regular,italic,500,500italic,700,700italic);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Váriaveis*/
+$azul: #6D98BA;
+$background: #033F63;
+$branco: #F9F4F5;
+
+body{
+    background-color: $background;
+    font-family: "Ubuntu";
+}
+
+/*Estilização do principal-container*/
+@mixin pcStyle{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $branco;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 200px;
+    padding: 50px;
+    border-radius: 15px;
+    box-shadow: 1px 1px 1px rgb(30, 30, 30);
+    gap: 20px;
+}
+.principal-container{
+    @include pcStyle();
+    .main-title{
+        h6{
+            font-size: 1.2rem;
+        }
+    }
+    .serach-area{
+        display: flex;
+        align-items: center;
+        #input-cidade{
+            outline: none;
+            border: 0.95px solid rgb(128, 126, 126);
+            width: 220px;
+            height: 35px;
+            font-size: 1rem;
+            text-transform: lowercase;
+            padding: 10px;
+        }
+        #search-button{
+            outline: none;
+            cursor: pointer;
+            height: 35px;
+            width: 50px;
+            padding: 10px;
+        }
+    }
+    .informations{
+        display: none;
+        .city-and-flag{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            p{
+                font-size: 1.2rem;
+                text-transform: capitalize;
+            }
+            .country-flag{
+                margin-top: 5px;
+            }
+        }
+    }
+    .temperature-container{
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+        p{
+            font-size: 1.5rem;
+        }
+    }
+    .weather-container{
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        p{
+            text-transform: capitalize;
+        }
+    }
+}
