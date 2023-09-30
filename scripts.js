@@ -1,5 +1,3 @@
-import {keys} from "./config.js"
-
 //Váriaveis que vão armazenar as keys e a url api das bandeiras
 const keyWeather = "56c89b26126b6ef177a04b7e9663315e";
 const keyBackground = "yU1cEVQhem7FYndqwgJaJw9GPFxWcbBuYENYcWLFlvw";
@@ -17,13 +15,24 @@ const informations = document.querySelector('.informations');
 
 //Criando as funções
 botao.addEventListener('click', () =>{
-if(!inputCidade.value){
-    swal.fire({
-        "icon": "error",
-        "title": "Oops",
-        "text": "É necessário digitar o nome de uma cidade para que a busca seja realizada"
-    })
-}else{
+    getData();
+})
+
+inputCidade.addEventListener('keypress', (event) =>{
+    if(event.key === 'Enter'){
+        getData();
+    }
+})
+
+//Buscando dados
+const getData = () =>{
+    if(!inputCidade.value){
+        swal.fire({
+            "icon": "error",
+            "title": "Oops",
+            "text": "É necessário digitar o nome de uma cidade para que a busca seja realizada"
+        })
+    }else{
     //Buscando os dados da API do clima
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputCidade.value}&units=metric&lang=pt_br&appid=${keyWeather}`)
     .then(response => response.json())
@@ -44,6 +53,7 @@ if(!inputCidade.value){
             document.body.style.backgroundImage = `url(${novoBackground})`;
         }
     })
+    inputCidade.value = "";
         }else{
             inputCidade.value = '';
             
@@ -57,8 +67,6 @@ if(!inputCidade.value){
         })
         inputCidade.value = "";
         informations.style.display = 'none';
-        document.body.style.backgroundColor = "#033F63";
     })
-
 }
-})
+}
