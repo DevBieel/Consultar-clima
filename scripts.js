@@ -1,8 +1,8 @@
 import {keys} from "./config.js"
 
 //Váriaveis que vão armazenar as keys e a url api das bandeiras
-const keyWeather = keys.weather;
-const keyBackground = keys.background
+const keyWeather = "56c89b26126b6ef177a04b7e9663315e";
+const keyBackground = "yU1cEVQhem7FYndqwgJaJw9GPFxWcbBuYENYcWLFlvw";
 const urlCountryFlag = "https://flagsapi.com/BE/shiny/32.png";
 
 //Váriaveis que vão armazenar os elementos
